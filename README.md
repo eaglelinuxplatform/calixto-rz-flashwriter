@@ -579,7 +579,7 @@ make BOARD=RZG2L_VERSA_SOM_1GB
 
 Output image will be available in the following directory.
 
-* ./AArch64_output/Flash_Writer_SCIF_RZG2L_SMARC_DDR4_2GB.mot
+* ./AArch64_output/Flash_Writer_SCIF_RZG2L_VERSA_SOM_1GB_1PCS.mot
 
 The target file name changes depending on the build options.
 
