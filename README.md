@@ -546,21 +546,7 @@ Command is executed in the user's home directory (~ /).
 
 ### 4.1. Prepare the compiler
 
-Gets cross compiler for linaro or setup the Yocto SDK.
-
-ARM64 Cross-compile toolchain:
-
-```shell
-cd ~/
-wget https://developer.arm.com/-/media/Files/downloads/gnu-a/10.2-2020.11/binrel/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf.tar.xz
-tar xvf gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf.tar.xz
-```
-
-Yocto SDK:
-
-```shell
-source /opt/poky/3.1.5/environment-setup-aarch64-poky-linux
-```
+please follow the steps in this [link] (https://bitbucket.org/calixtolinuxplatform/calixto-rzg2-toolchain/wiki/Home)
 
 ### 4.2. Prepare the source code
 
