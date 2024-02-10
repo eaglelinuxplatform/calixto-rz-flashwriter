@@ -546,7 +546,7 @@ Command is executed in the user's home directory (~ /).
 
 ### 4.1. Prepare the compiler
 
-please follow the steps in this [link] (https://bitbucket.org/calixtolinuxplatform/calixto-rzg2-toolchain/wiki/Home)
+please follow the steps in this [link](https://bitbucket.org/calixtolinuxplatform/calixto-rzg2-toolchain/wiki/Home)
 
 ### 4.2. Prepare the source code
 
