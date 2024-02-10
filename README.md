@@ -1,31 +1,31 @@
-# README of the RZ/G2L Flash Writer
+# README of the calixto-rz Flash Writer
 
 <Div Align="right">
-Renesas Electronics Corporation
+Calixto Systems Pvt Ltd
 
 Nov-14-2023
 </Div>
 
-The RZ/G2L flash writer is sample software for Renesas RZ/G2L Group MPUs.
-The RZ/G2L flash writer downloads the some of the raw images from Host PC via SCIF and writes the raw images to the Serial NOR Flash.
+The calixto-rz flash writer is sample software for Renesas RZ Group MPUs.
+The calixto-rz flash writer downloads the some of the raw images from Host PC via SCIF and writes the raw images to the Serial NOR Flash.
 
 ## 1. Overview
 
-This document explains about RZ/G2L flash writer sample software for Renesas RZ/G2L Group MPUs.
+This document explains about calixto-rz flash writer sample software for Renesas RZ Group MPUs.
 
-The RZ/G2L flash writer is downloaded from the Host PC via SCIF by boot ROM.
+The calixto-rz flash writer is downloaded from the Host PC via SCIF by boot ROM.
 
-And the RZ/G2L flash writer downloads the some of the raw images from Host PC via SCIF, and writes the raw images to the Serial NOR Flash (hereafter referred to as &ldquo;Serial Flash&rdquo;).
+And the calixto-rz flash writer downloads the some of the raw images from Host PC via SCIF, and writes the raw images to the Serial NOR Flash (hereafter referred to as &ldquo;Serial Flash&rdquo;).
 
-The RZ/G2L flash writer's Serial Flash writing support is on-board Serial NOR Flash(i.e. MT25QU512).
+The calixto-rz flash writer's Serial Flash writing support is on-board Serial NOR Flash(i.e. MT25QU512).
 
 [Chapter 2](#2-operating-environment) describes the operating environment.
 
 [Chapter 3](#3-software) describes the software.
 
-[Chapter 4](#4-how-to-build-the-rzg2-flash-writer) explains example of how to build the RZ/G2L flash writer.
+[Chapter 4](#4-how-to-build-the-rzg2-flash-writer) explains example of how to build the calixto-rz flash writer.
 
-[Chapter 5](#5-how-to-run-the-rzg2-flash-writer) explains example of how to perform the RZ/G2L flash writer.
+[Chapter 5](#5-how-to-run-the-rzg2-flash-writer) explains example of how to perform thecalixto-rz flash writer.
 
 [Chapter 6](#6-error-case-to-handle) explains how to handle error case.
 
@@ -39,11 +39,11 @@ BSD-3-Clause (please see file [LICENSE.md](LICENSE.md) for the details)
 
 ## 1.3. Notice
 
-The RZ/G2L flash writer is distributed as a sample software from Renesas without any warranty or support.
+The calixto-rz flash writer is distributed as a sample software from Renesas without any warranty or support.
 
 ## 1.4. Contributing
 
-To contribute to this layer, you should email patches to renesas-rz@renesas.com. Please send .patch files as email attachments, not embedded in the email body.
+
 
 ## 1.5. References
 
@@ -54,9 +54,7 @@ The following table shows the document related to this function.
 | Number | Issuer  | Title                                                       | Edition           |
 | ------ | ------- | ----------------------------------------------------------- | ----------------- |
 | 1      | JEDEC   | Embedded Multi-Media Card (eMMC) Electrical Standard (5.01) | JESD84-B50.1      |
-| 2      | Renesas | Release Note for Verified Linux Package for 64bit kernel    | Rev.1.01 or later |
-| 3      | Renesas | RZ/G2L Yocto recipe Start-Up Guide                          | Rev.1.01 or later |
-| 4      | Renesas | RZ/G2L Reference Boards Start-up Guide                      | Rev.1.01 or later |
+
 
 ## 2. Operating Environment
 
@@ -68,28 +66,30 @@ The following table lists the hardware needed to use this function.
 
 | Name         | Note                                              |
 | ------------ | ------------------------------------------------- |
-| Target board | RZ/G2L SMARC Concrete Evaluation Kit(RZ/G2L EVK)  |
-|              | RZ/G2L SMARC PMIC Evaluation Kit(RZ/G2L PMIC EVK) |
-|              | RZ/V2L SMARC Concrete Evaluation Kit(RZ/V2L EVK)  |
-|              | RZ/V2L SMARC PMIC Evaluation Kit(RZ/V2L PMIC EVK) |
-|              | RZ/G2LC SMARC Evaluation Kit(RZ/G2LC EVK)         |
-|              | RZ/G2UL SMARC Evaluation Kit(RZ/G2UL EVK)         |
-|              | RZ/A3UL SMARC Evaluation Kit(RZ/A3UL EVK)         |
+| Target board | RZ/G2L VERSA SOM 1GB                              |
+|              | RZ/G2L VERSA SOM 2GB                              |
+|              | RZ/V2L VERSA SOM 1GB                              |
+|              | RZ/V2L VERSA SOM 2GB                              |
+|              | RZ/G2L OPTIMA SOM 1GB                             |
+|              | RZ/G2L OPTIMA SOM 2GB                             |
+|              | RZ/V2L OPTIMA SOM 1GB                             |
+|              | RZ/V2L OPTIMA SOM 2GB                             |
 | Host PC      | Ubuntu Desktop 20.04(64bit) or later              |
 
 The following table shows Serial Flash and eMMC support for each MPU.
 
 ##### Serial Flash / eMMC support status of each MPU
 
-| MPU             | Read/Write the Serial Flash | Boot from the Serial Flash | Read/Write the eMMC | Boot from the eMMC |
-| --------------- | --------------------------- | -------------------------- | ------------------- | ------------------ |
-| RZ/G2L EVK      | Support                     | Support                    | Support             | Support            |
-| RZ/G2L PMIC EVK | Support                     | Support                    | Support             | Support            |
-| RZ/V2L EVK      | Support                     | Support                    | Support             | Support            |
-| RZ/V2L PMIC EVK | Support                     | Support                    | Support             | Support            |
-| RZ/G2LC EVK     | Support                     | Support                    | Support             | Support            |
-| RZ/G2UL EVK     | Support                     | Support                    | Support             | Support            |
-| RZ/A3UL EVK     | Support                     | Support                    | Support             | Support            |
+| MPU                  | Read/Write the Serial Flash | Boot from the Serial Flash | Read/Write the eMMC | Boot from the eMMC |
+| -------------------- | --------------------------- | -------------------------- | ------------------- | ------------------     |
+| RZ/G2L VERSA SOM 1GB | Support                     | Support                    | Support             | Support               |
+| RZ/G2L VERSA SOM 2GB | Support                     | Support                    | Support             | Support               |
+| RZ/V2L VERSA SOM 1GB | Support                     | Support                    | Support             | Support               |
+| RZ/V2L VERSA SOM 2GB | Support                     | Support                    | Support             | Support               |
+| RZ/G2L OPTIMA SOM 1GB| Support                     | Support                    | Support             | Support               |
+| RZ/G2L OPTIMA SOM 2GB| Support                     | Support                    | Support             | Support               |
+| RZ/V2L OPTIMA SOM 1GB| Support                     | Support                    | Support             | Support               |
+| RZ/V2L OPTIMA SOM 2GB| Support                     | Support                    | Support             | Support               |
 
 ## 2.2. Software Environment
 
@@ -125,7 +125,7 @@ This package has the following functions.
 
 ### 3.2. Option setting
 
-The RZ/G2L flash writer support the following build options.
+The calixto-rz flash writer support the following build options.
 
 #### 3.2.1. BOARD
 
@@ -133,15 +133,16 @@ Select from the following table according to the board settings.
 
 If this option is not selected, the default value is RZG2L_SMARC.
 
-| BOARD            | BOARD setting                                                 |
-| ---------------- | ------------------------------------------------------------- |
-| RZG2L_SMARC      | Generate binary that works on RZ/G2L EVK board (default)      |
-| RZG2L_SMARC_PMIC | Generate binary that works on RZ/G2L PMIC EVK board           |
-| RZV2L_SMARC      | Generate binary that works on RZ/V2L EVK board                |
-| RZV2L_SMARC_PMIC | Generate binary that works on RZ/V2L PMIC EVK board           |
-| RZG2LC_SMARC     | Generate binary that works on RZ/G2LC EVK board               |
-| RZG2UL_SMARC     | Generate binary that works on RZ/G2UL EVK board               |
-| RZA3UL_SMARC     | Generate binary that works on RZ/A3UL EVK board               |
+| BOARD                 | BOARD setting                                                  |
+| --------------------- | -------------------------------------------------------------  |
+| RZ/G2L VERSA SOM 1GB  | Generate binary that works on RZ/G2L VERSA SOM 1GB EVK board   |
+| RZ/G2L VERSA SOM 2GB  | Generate binary that works on RZ/G2L VERSA SOM 2GB EVK board   |
+| RZ/V2L VERSA SOM 1GB  | Generate binary that works on RZ/V2L VERSA SOM 1GB EVK board   |
+| RZ/V2L VERSA SOM 2GB  | Generate binary that works on RZ/V2L VERSA SOM 2GB EVK board   |
+| RZ/G2L OPTIMA SOM 1GB | Generate binary that works on RZ/G2L OPTIMA SOM 1GB EVK board  |
+| RZ/G2L OPTIMA SOM 2GB | Generate binary that works on RZ/G2L OPTIMA SOM 2GB EVK board  |
+| RZ/V2L OPTIMA SOM 1GB | Generate binary that works on RZ/V2L OPTIMA SOM 1GB EVK board  |
+| RZ/V2L OPTIMA SOM 2GB | Generate binary that works on RZ/V2L OPTIMA SOM 2GB EVK board  |
 
 #### 3.2.2. SERIAL_FLASH
 
@@ -205,7 +206,7 @@ This command writes the S-record format image to Serial Flash.
 
 The following shows the procedure of this command.
 
-*Note) The following procedure is an example on RZ/G2L EVK board.*
+*Note) The following procedure is an example on RZ/G2L SOM EVK board.*
 
 ```text
 >XLS2
@@ -306,7 +307,7 @@ This command erases all sectors of Serial Flash.
 
 The following shows the procedure of this command.
 
-*Note) The following procedure is an example on RZ/G2L EVK board.*
+*Note) The following procedure is an example on RZ/G2L SOM EVK board.*
 
 ```text
 >XCS
@@ -538,9 +539,9 @@ The following shows the procedure of this command.
 >
 ```
 
-## 4. How to build the RZ/G2L flash writer
+## 4. How to build the calixto-rz flash writer
 
-This chapter is described how to build the RZ/G2L flash writer.
+This chapter is described how to build the calixto-rz flash writer.
 Command is executed in the user's home directory (~ /).
 
 ### 4.1. Prepare the compiler
@@ -563,16 +564,16 @@ source /opt/poky/3.1.5/environment-setup-aarch64-poky-linux
 
 ### 4.2. Prepare the source code
 
-Get the source code of RZ/G2L flash writer.
+Get the source code of calixto-rz flash writer.
 
 ```shell
 cd ~/
-git clone https://github.com/renesas-rz/rzg2_flash_writer.git
+git clone https://github.com/eaglelinuxplatform/calixto-rz-flashwriter.git
 cd rzg2_flash_writer
 git checkout rz_g2l
 ```
 
-### 4.3. Build the RZ/G2L flash writer
+### 4.3. Build the calixto-rz flash writer
 
 S-record file will be built by the following command.
 
@@ -580,14 +581,14 @@ ARM64 Cross-compile toolchain:
 
 ```shell
 make -f makefile.linaro clean
-CROSS_COMPILE=~/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf/bin/aarch64-none-elf- make -f makefile.linaro BOARD=RZG2L_SMARC
+CROSS_COMPILE=~/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf/bin/aarch64-none-elf- make -f makefile.linaro BOARD=RZG2L_VERSA_SOM_1GB
 ```
 
 Yocto SDK:
 
 ```shell
 make clean
-make BOARD=RZG2L_SMARC
+make BOARD=RZG2L_VERSA_SOM_1GB
 ```
 
 Output image will be available in the following directory.
@@ -600,21 +601,22 @@ The following table lists the relationship between build option and target files
 
 #### Description of build options and target files
 
-| Build options     | Target filename                                      |
-| ----------------- | -----------------------------------------------------|
-| RZ/G2L SMARC      | Flash_Writer_SCIF_RZG2L_SMARC_DDR4_2GB.mot           |
-| RZ/G2L SMARC PMIC | Flash_Writer_SCIF_RZG2L_SMARC_PMIC_DDR4_2GB_1PCS.mot |
-| RZ/V2L SMARC      | Flash_Writer_SCIF_RZV2L_SMARC_DDR4_4GB.mot           |
-| RZ/V2L SMARC PMIC | Flash_Writer_SCIF_RZV2L_SMARC_PMIC_DDR4_2GB_1PCS.mot |
-| RZ/G2LC SMARC     | Flash_Writer_SCIF_RZG2LC_SMARC_DDR4_1GB_1PCS.mot     |
-| RZ/G2UL SMARC     | Flash_Writer_SCIF_RZG2UL_SMARC_DDR4_1GB_1PCS.mot     |
-| RZ/A3UL SMARC     | Flash_Writer_SCIF_RZA3UL_SMARC_DDR4_1GB_1PCS.mot     |
+| Build options        | Target filename                                      |
+| -------------------- | -----------------------------------------------------|
+| RZ/G2L VERSA SOM 1GB | Flash_Writer_SCIF_RZG2L_VERSA_SOM_DDR4_1GB_1PCS.mot  |
+| RZ/G2L VERSA SOM 2GB | Flash_Writer_SCIF_RZG2L_VERSA_SOM_DDR4_2GB_1PCS.mot  |
+| RZ/V2L VERSA SOM 1GB | Flash_Writer_SCIF_RZV2L_VERSA_SOM_DDR4_1GB_1PCS.mot  |
+| RZ/V2L VERSA SOM 2GB | Flash_Writer_SCIF_RZV2L_VERSA_SOM_DDR4_2GB_1PCS.mot  |
+| RZ/G2L OPTIMA SOM 1GB| Flash_Writer_SCIF_RZG2L_OPTIMA_SOM_DDR4_1GB_1PCS.mot |
+| RZ/G2L OPTIMA SOM 2GB| Flash_Writer_SCIF_RZG2L_OPTIMA_SOM_DDR4_2GB_1PCS.mot |
+| RZ/V2L OPTIMA SOM 1GB| Flash_Writer_SCIF_RZV2L_OPTIMA_SOM_DDR4_1GB_1PCS.mot |
+| RZ/V2L OPTIMA SOM 2GB| Flash_Writer_SCIF_RZV2L_OPTIMA_SOM_DDR4_2GB_1PCS.mot |
 
-## 5. How to run the RZ/G2L flash writer
+## 5. How to run the calixto-rz flash writer
 
 ### 5.1. Prepare for write to the Serial Flash and eMMC
 
-Start the target in the SCIF download mode and run the RZ/G2L flash writer sample code.
+Start the target in the SCIF download mode and run the calixto-rz flash writer sample code.
 
 Regarding the DIP switch configuration on the board, refer to [Related Document](#related-document) No.4.
 
@@ -666,7 +668,7 @@ TBD
 
 ## 7. Revision history
 
-Describe the revision history of RZ/G2L flash writer.
+Describe the revision history of calixto-rz flash writer.
 
 ### 7.1. v1.00
 

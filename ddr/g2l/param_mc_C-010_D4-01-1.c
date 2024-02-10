@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2021, Renesas Electronics Corporation. All rights reserved.
+ * CALIXTO SYSTEMS PVT LTD. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */

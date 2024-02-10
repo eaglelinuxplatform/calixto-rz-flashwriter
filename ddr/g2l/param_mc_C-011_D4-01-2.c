@@ -1,11 +1,13 @@
 /*
- * Copyright (c) 2021, Renesas Electronics Corporation. All rights reserved.
- *
+ * CALIXTO SYSTEMS PVT LTD.
  * SPDX-License-Identifier: BSD-3-Clause
+ * This code was generated with RZ/G2L, G2UL, Five, A3UL DDR config generation tool v3.0.1
  */
 
 #include <stdint.h>
 #include <ddr_mc_regs.h>
+
+const char ddr_an_version[] = "v3.0.1";
 
 const uint32_t mc_init_tbl[MC_INIT_NUM][2] = {
 	{	DENALI_CTL_00,	0x00000A00	},
@@ -188,9 +190,9 @@ const uint32_t mc_init_tbl[MC_INIT_NUM][2] = {
 	{	DENALI_CTL_177,	0x01030000	},
 	{	DENALI_CTL_178,	0x03000302	},
 	{	DENALI_CTL_179,	0x00000000	},
-	{	DENALI_CTL_180,	0x00080800	},
-	{	DENALI_CTL_181,	0x00080800	},
-	{	DENALI_CTL_182,	0x00080800	},
+	{	DENALI_CTL_180,	0x00080801	},
+	{	DENALI_CTL_181,	0x00080801	},
+	{	DENALI_CTL_182,	0x00070601	},
 	{	DENALI_CTL_183,	0x00000000	},
 	{	DENALI_CTL_184,	0x000FFFFF	},
 	{	DENALI_CTL_185,	0xFFFFFFFF	},

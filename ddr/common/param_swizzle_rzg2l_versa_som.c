@@ -1,7 +1,7 @@
 /*
  * CALIXTO SYSTEMS PVT LTD. All rights reserved.
+ *
  * SPDX-License-Identifier: BSD-3-Clause
- * This code was generated with RZ/G2L, G2UL, Five, A3UL DDR config generation tool v3.0.1
  */
 
 #include <stdint.h>
