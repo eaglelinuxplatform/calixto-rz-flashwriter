@@ -34,6 +34,8 @@
 #include "param_swizzle_T3bcud.c"
 #elif (SWIZZLE_T3BCUD2 == 1)
 #include "param_swizzle_T3bcud2.c"
+#elif (SWIZZLE_T1VBC == 1)
+#include "param_swizzle_T1vbc.c"
 #else
 #error "Unknown swizzle."
 #endif

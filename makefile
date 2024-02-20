@@ -17,27 +17,27 @@ DEVICE   = RZG2L
 DDR_TYPE = DDR4
 DDR_SIZE = 2GB
 SWIZZLE  = T1C
-else ifeq ("$(BOARD)", "RZG2L_VERSA_SOM_2GB")
-#--------------------------------------
-# RZ/G2L CALIXTO VERSA SOM
-#--------------------------------------
-FILENAME_ADD = _RZG2L_VERSA_SOM
-DEVICE   = RZG2L
-DDR_TYPE = DDR4
-DDR_SIZE = 2GB_1PCS
-SWIZZLE  = T1BC
 else ifeq ("$(BOARD)", "RZG2L_VERSA_SOM_1GB")
 #--------------------------------------
-# RZ/G2L CALIXTO VERSA SOM
+# RZ/G2L CALIXTO VERSA SOM 1GB
 #--------------------------------------
 FILENAME_ADD = _RZG2L_VERSA_SOM
 DEVICE   = RZG2L
 DDR_TYPE = DDR4
 DDR_SIZE = 1GB_1PCS
 SWIZZLE  = T1BC
+else ifeq ("$(BOARD)", "RZG2L_VERSA_SOM_2GB")
+#--------------------------------------
+# RZ/G2L CALIXTO VERSA SOM 2GB
+#--------------------------------------
+FILENAME_ADD = _RZG2L_VERSA_SOM
+DEVICE   = RZG2L
+DDR_TYPE = DDR4
+DDR_SIZE = 2GB_1PCS
+SWIZZLE  = T1BC
 else ifeq ("$(BOARD)", "RZG2L_OPTIMA_SOM_1GB")
 #--------------------------------------
-# RZ/G2L CALIXTO OPTIMA SOM
+# RZ/G2L CALIXTO OPTIMA SOM 1GB
 #--------------------------------------
 FILENAME_ADD = _RZG2L_OPTIMA_SOM
 DEVICE   = RZG2L
@@ -46,7 +46,7 @@ DDR_SIZE = 1GB_1PCS
 SWIZZLE  = T1BC
 else ifeq ("$(BOARD)", "RZG2L_OPTIMA_SOM_2GB")
 #--------------------------------------
-# RZ/G2L CALIXTO OPTIMA SOM
+# RZ/G2L CALIXTO OPTIMA SOM 2GB
 #--------------------------------------
 FILENAME_ADD = _RZG2L_OPTIMA_SOM
 DEVICE   = RZG2L
@@ -159,40 +159,40 @@ DDR_SIZE = 4GB
 SWIZZLE  = T1C
 else ifeq ("$(BOARD)", "RZV2L_VERSA_SOM_1GB")
 #--------------------------------------
-# RZ/V2L CALIXTO VERSA SOM
+# RZ/V2L CALIXTO VERSA SOM 1GB
 #--------------------------------------
 FILENAME_ADD = _RZV2L_VERSA_SOM
 DEVICE   = RZV2L
 DDR_TYPE = DDR4
 DDR_SIZE = 1GB_1PCS
-SWIZZLE  = T1BC
+SWIZZLE  = T1VBC
 else ifeq ("$(BOARD)", "RZV2L_VERSA_SOM_2GB")
 #--------------------------------------
-# RZ/V2L CALIXTO VERSA SOM
+# RZ/V2L CALIXTO VERSA SOM 2GB
 #--------------------------------------
 FILENAME_ADD = _RZV2L_VERSA_SOM
 DEVICE   = RZV2L
 DDR_TYPE = DDR4
 DDR_SIZE = 2GB_1PCS
-SWIZZLE  = T1BC
+SWIZZLE  = T1VBC
 else ifeq ("$(BOARD)", "RZV2L_OPTIMA_SOM_1GB")
 #--------------------------------------
-# RZ/V2L CALIXTO OPTIMA SOM
+# RZ/V2L CALIXTO OPTIMA SOM 1GB
 #--------------------------------------
-FILENAME_ADD = _RZG2L_OPTIMA_SOM
+FILENAME_ADD = _RZV2L_OPTIMA_SOM
 DEVICE   = RZV2L
 DDR_TYPE = DDR4
 DDR_SIZE = 1GB_1PCS
-SWIZZLE  = T1BC
+SWIZZLE  = T1VBC
 else ifeq ("$(BOARD)", "RZV2L_OPTIMA_SOM_2GB")
 #--------------------------------------
-# RZ/V2L CALIXTO OPTIMA SOM
+# RZ/V2L CALIXTO OPTIMA SOM 2GB
 #--------------------------------------
 FILENAME_ADD = _RZV2L_OPTIMA_SOM
 DEVICE   = RZV2L
 DDR_TYPE = DDR4
 DDR_SIZE = 2GB_1PCS
-SWIZZLE  = T1BC
+SWIZZLE  = T1VBC
 else ifeq ("$(BOARD)", "RZV2L_SMARC_PMIC")
 #--------------------------------------
 # RZ/V2L Smarc PMIC Edition board
@@ -369,6 +369,10 @@ endif
 
 ifeq ("$(SWIZZLE)", "T3BCUD2")
 	CFLAGS += -DSWIZZLE_T3BCUD2=1
+endif
+
+ifeq ("$(SWIZZLE)", "T1VBC")
+	CFLAGS += -DSWIZZLE_T1VBC=1
 endif
 
 ifeq ("$(DEVICE_TYPE)", "1")
