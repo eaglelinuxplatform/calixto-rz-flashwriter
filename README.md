@@ -574,8 +574,12 @@ Yocto SDK:
 
 ```shell
 make clean
-make BOARD=RZG2L_VERSA_SOM_1GB
+make BOARD={CHIP}_{SOM}_SOM_{DDR}
 ```
+>[!Note]
+> * CHIP values are RZG2L,RZG2L
+> * SOM values are OPTIMA,VERSA
+> * DDR values are 1GB,2GB
 
 Output image will be available in the following directory.
 
