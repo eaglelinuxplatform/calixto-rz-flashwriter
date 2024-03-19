@@ -206,7 +206,7 @@ This command writes the S-record format image to Serial Flash.
 
 The following shows the procedure of this command.
 
-*Note) The following procedure is an example on RZ/G2L SOM EVK board.*
+
 
 ```text
 >XLS2
