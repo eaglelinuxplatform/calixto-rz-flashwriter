@@ -131,18 +131,18 @@ The calixto-rz flash writer support the following build options.
 
 Select from the following table according to the board settings.
 
-If this option is not selected, the default value is RZG2L_SMARC.
+
 
 | BOARD                 | BOARD setting                                                  |
 | --------------------- | -------------------------------------------------------------  |
-| RZ/G2L VERSA SOM 1GB  | Generate binary that works on RZ/G2L VERSA SOM 1GB EVK board   |
-| RZ/G2L VERSA SOM 2GB  | Generate binary that works on RZ/G2L VERSA SOM 2GB EVK board   |
-| RZ/V2L VERSA SOM 1GB  | Generate binary that works on RZ/V2L VERSA SOM 1GB EVK board   |
-| RZ/V2L VERSA SOM 2GB  | Generate binary that works on RZ/V2L VERSA SOM 2GB EVK board   |
-| RZ/G2L OPTIMA SOM 1GB | Generate binary that works on RZ/G2L OPTIMA SOM 1GB EVK board  |
-| RZ/G2L OPTIMA SOM 2GB | Generate binary that works on RZ/G2L OPTIMA SOM 2GB EVK board  |
-| RZ/V2L OPTIMA SOM 1GB | Generate binary that works on RZ/V2L OPTIMA SOM 1GB EVK board  |
-| RZ/V2L OPTIMA SOM 2GB | Generate binary that works on RZ/V2L OPTIMA SOM 2GB EVK board  |
+| RZ/G2L VERSA SOM 1GB  | Generate binary that works on RZ/G2L VERSA SOM 1GB EVB board   |
+| RZ/G2L VERSA SOM 2GB  | Generate binary that works on RZ/G2L VERSA SOM 2GB EVB board   |
+| RZ/V2L VERSA SOM 1GB  | Generate binary that works on RZ/V2L VERSA SOM 1GB EVB board   |
+| RZ/V2L VERSA SOM 2GB  | Generate binary that works on RZ/V2L VERSA SOM 2GB EVB board   |
+| RZ/G2L OPTIMA SOM 1GB | Generate binary that works on RZ/G2L OPTIMA SOM 1GB EVB board  |
+| RZ/G2L OPTIMA SOM 2GB | Generate binary that works on RZ/G2L OPTIMA SOM 2GB EVB board  |
+| RZ/V2L OPTIMA SOM 1GB | Generate binary that works on RZ/V2L OPTIMA SOM 1GB EVB board  |
+| RZ/V2L OPTIMA SOM 2GB | Generate binary that works on RZ/V2L OPTIMA SOM 2GB EVB board  |
 
 #### 3.2.2. SERIAL_FLASH
 
@@ -307,7 +307,7 @@ This command erases all sectors of Serial Flash.
 
 The following shows the procedure of this command.
 
-*Note) The following procedure is an example on RZ/G2L SOM EVK board.*
+
 
 ```text
 >XCS
@@ -660,37 +660,3 @@ TBD
 
 Describe the revision history of calixto-rz flash writer.
 
-### 7.1. v1.00
-
-- First release.
-- Support RZ/G2L Concrete/PMIC EVK board.
-
-### 7.2. v1.01
-
-- Support RZ/G2UL EVK board.
-
-### 7.3. v1.02
-
-- Enable eMMC writing function.
-
-### 7.4. v1.03
-
-- Support the RESET command.
-
-### 7.5. v1.04
-
-- Support the SUP,SUD command.
-- Update README.
-
-### 7.6. v1.05
-
-- Support RZ/A3UL EVK board.
-- Update README.
-
-### 7.7. v1.06
-
-- Update according to the Technical Update (Document No. TN-RZ*-A0094A/E, DATE: August 9th).
-
-### 7.8. v1.07
-
-- eMMC : increase timeout waiting for CMD1_SEND_OP_COND response.
