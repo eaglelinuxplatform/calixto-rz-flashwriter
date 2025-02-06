@@ -201,8 +201,8 @@ This command writes the S-record format image to Serial Flash.
 
 | Filename                   | Program Top Address | Flash Save Address | Description                                 |
 | -------------------------- | ------------------- | ------------------ | ------------------------------------------- |
-| bl2_bp-`<board_name>`.srec | H'11E00             | H'0000             | Loader                                      |
-| fip-`<board_name>`.srec    | H'0000              | H'1D200            | ARM Trusted Firmware and U-boot in FIP file |
+| bl2_bp-`<board_name>`.srec | H'11E00             | H'00000            | Loader                                      |
+| fip-`<board_name>`.srec    | H'00000             | H'1D200            | ARM Trusted Firmware and U-boot in FIP file |
 
 The following shows the procedure of this command.
 
