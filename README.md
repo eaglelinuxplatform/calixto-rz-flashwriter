@@ -193,115 +193,8 @@ The following table shows the command list.
 | RESET    | Perform RESET of the CPU.                                                                          |
 | H        | Display the command help.                                                                          |
 
-#### 3.3.1. Write to the S-record format images to the Serial Flash
 
-This command writes the S-record format image to Serial Flash.
-
-##### Example of writing data for the Serial Flash boot
-
-| Filename                   | Program Top Address | Flash Save Address | Description                                 |
-| -------------------------- | ------------------- | ------------------ | ------------------------------------------- |
-| bl2_bp-`<board_name>`.srec | H'11E00             | H'00000            | Loader                                      |
-| fip-`<board_name>`.srec    | H'00000             | H'1D200            | ARM Trusted Firmware and U-boot in FIP file |
-
-The following shows the procedure of this command.
-
-
-
-```text
->XLS2
-===== Qspi writing of RZ/G2 Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
- Micron : MT25QU512
-Program Top Address & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'
-```
-
-Please enter the program top address of the write image in hexadecimal.
-
-```text
->XLS2
-===== Qspi writing of RZ/G2 Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
- Micron : MT25QU512
-Program Top Address & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'11E00
-
-===== Please Input Qspi Save Address ===
-  Please Input : H'
-```
-
-Please enter the flash save address in hexadecimal.
-
-```text
-===== Qspi writing of RZ/G2 Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
- Micron : MT25QU512
-Program Top Address & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'11E00
-
-===== Please Input Qspi Save Address ===
-  Please Input : H'0
-Work RAM(H'50000000-H'53FFFFFF) Clear....
-please send ! ('.' & CR stop load)
-```
-
-Please download the write image in S-record format.
-
-```text
->XLS2
-===== Qspi writing of RZ/G2 Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
- Micron : MT25QU512
-Program Top Address & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'11E00
-
-===== Please Input Qspi Save Address ===
-  Please Input : H'0
-Work RAM(H'50000000-H'53FFFFFF) Clear....
-please send ! ('.' & CR stop load)
-SPI Data Clear(H'FF) Check :H'00000000-0001FFFF,Clear OK?(y/n)
-```
-
-Please enter the 'y' key when asked to clear.
-
-If Flash is erased, it will not be asked.
-
-```text
->XLS2
-===== Qspi writing of RZ/G2 Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
- Micron : MT25QU512
-Program Top Address & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'11E00
-
-===== Please Input Qspi Save Address ===
-  Please Input : H'0
-Work RAM(H'50000000-H'53FFFFFF) Clear....
-please send ! ('.' & CR stop load)
-SPI Data Clear(H'FF) Check :H'00000000-0000FFFF Erasing..Erase Completed
-SAVE SPI-FLASH.......
-======= Qspi  Save Information  =================
- SpiFlashMemory Stat Address : H'00000000
- SpiFlashMemory End Address  : H'00009A80
-===========================================================
-
->
-```
-
-Image writing has been completed.
-
-#### 3.3.2. Erase the Serial NOR Flash
+#### 3.3.1. Erase the Serial NOR Flash
 
 This command erases all sectors of Serial Flash.
 
@@ -326,6 +219,89 @@ ALL ERASE SpiFlash memory
 ```
 
 Selected Serial Flash has been erased.
+
+
+
+#### 3.3.2. Write to the S-record format images to the Serial Flash
+
+This command writes the S-record format image to Serial Flash.
+
+##### Example of writing data for the Serial Flash boot
+
+| Filename                   | Program Top Address | Flash Save Address | Description                                 |
+| -------------------------- | ------------------- | ------------------ | ------------------------------------------- |
+| bl2_bp-`<board_name>`.srec | H'11E00             | H'00000            | Loader                                      |
+| fip-`<board_name>`.srec    | H'00000             | H'1D200            | ARM Trusted Firmware and U-boot in FIP file |
+
+The following shows the procedure of this command.
+
+
+
+```text
+>XLS2
+===== Qspi writing of RZ/G2 Board Command =============
+Load Program to Spiflash
+Writes to any of SPI address.
+Micron : MT25QU512
+Program Top Address & Qspi Save Address
+===== Please Input Program Top Address ============
+ Please Input : H'11E00
+===== Please Input Qspi Save Address ===
+ Please Input : H'00000
+Work RAM(H'50000000-H'53FFFFFF) Clear....
+please send ! ('.' & CR stop load)
+```
+
+Send the data of “bl2_bp-`<board-name>`.srec” from terminal software after the message “please send !” is shown
+
+After successfully download the binary, messages like below are shown on the terminal. 
+
+```text
+SPI Data Clear(H'FF) Check :H'00000000-0000FFFF Erasing..Erase Completed
+SAVE SPI-FLASH.......
+======= Qspi Save Information =================
+SpiFlashMemory Stat Address : H'00000000
+SpiFlashMemory End Address : H'00009A80
+===========================================================
+```
+
+
+Next, write another loader file by using XLS2 command again
+```text
+>XLS2
+===== Qspi writing of RZ/G2 Board Command =============
+Load Program to Spiflash
+Writes to any of SPI address.
+Micron : MT25QU512
+Program Top Address & Qspi Save Address
+===== Please Input Program Top Address ============
+ Please Input : H'00000
+===== Please Input Qspi Save Address ===
+ Please Input : H'1D200
+Work RAM(H'50000000-H'53FFFFFF) Clear....
+please send ! ('.' & CR stop load)
+```
+Send the data of “fip-`<board-name>`.srec” from terminal software after the message “please send !” is shown
+
+Please enter the 'y' key when asked to clear.
+
+If Flash is erased, it will not be asked.
+
+After successfully download the binary, messages like below are shown on the terminal.
+```text
+SPI Data Clear(H'FF) Check :H'00000000-0000FFFF Erasing..Erase Completed
+SAVE SPI-FLASH.......
+======= Qspi Save Information =================
+SpiFlashMemory Stat Address : H'0001D200
+SpiFlashMemory End Address : H'000CC73F
+===========================================================
+```
+
+Image writing has been completed.
+
+After writing two loader files normally, turn off the power of the board by changing the Switch
+
+
 
 #### 3.3.3. Display the CID registers command
 
@@ -385,20 +361,50 @@ The following shows the procedure of this command.
 [134:134]  SEC_BAD_BLK_MGMNT                          0x00
 ```
 
-#### 3.3.6. Modify the EXT_CSD registers of eMMC command
+#### 3.3.6. Erase the eMMC
+
+This command erases any partition of the eMMC.
+
+The following shows the procedure of this command.
+
+```text
+>EM_E
+EM_E Start --------------
+---------------------------------------------------------
+Please select,eMMC Partition Area.
+ 0:User Partition Area   : 62160896 KBytes
+  eMMC Sector Cnt : H'0 - H'0768FFFF
+ 1:Boot Partition 1      : 32256 KBytes
+  eMMC Sector Cnt : H'0 - H'0000FBFF
+ 2:Boot Partition 2      : 32256 KBytes
+  eMMC Sector Cnt : H'0 - H'0000FBFF
+---------------------------------------------------------
+  Select area(0-2)>0                                       <<<< Enter "0" here
+-- User Partition Area Program --------------------------
+EM_E Complete!
+```
+
+Selected partition has been erased.
+
+
+#### 3.3.7. Modify the EXT_CSD registers of eMMC command
 
 This command modifies the contents of the EXT_CSD registers in the eMMC.
 
 The values must be entered as **hexadecimal**.
 
-Example:
 
 ```text
 >EM_SECSD
-  Please Input EXT_CSD Index(H'00 - H'1FF) :b1
-  EXT_CSD[B1] = 0x00
-  Please Input Value(H'00 - H'FF) :2
-  EXT_CSD[B1] = 0x02
+ Please Input EXT_CSD Index(H'00 - H'1FF) :b1
+ EXT_CSD[B1] = 0x00
+ Please Input Value(H'00 - H'FF) :2
+ EXT_CSD[B1] = 0x02
+>EM_SECSD
+ Please Input EXT_CSD Index(H'00 - H'1FF) :b3
+ EXT_CSD[B3] = 0x00
+ Please Input Value(H'00 - H'FF) :8
+ EXT_CSD[B3] = 0x08
 ```
 
 #### eMMC Boot Settings
@@ -407,7 +413,8 @@ Please note that for eMMC booting, the following EXT_CSD registers need to be mo
  - EXT_CSD[**B1**] = **0x02**
  - EXT_CSD[**B3**] = **0x08**
 
-#### 3.3.7. Write to the S-record format images to the eMMC
+
+#### 3.3.8. Write to the S-record format images to the eMMC
 
 This command writes the S-record format image to any partition of the eMMC.
 
@@ -442,36 +449,44 @@ Please Input Start Address in sector :1                    <<<< Enter "1" here
 Please Input Program Start Address : 11E00                 <<<< Enter "11E00" here
 Work RAM(H'50000000-H'50FFFFFF) Clear....
 please send ! ('.' & CR stop load)
+```
+Send the data of “bl2_bp-`<board-name>`.srec” from terminal software after the message “please send !” is shown
+
+```text
+SAVE -FLASH.......
+EM_W Complete!
+```
+Next, write another loader file by using EM_W command again
+
+```text
+> EM_W
+EM_W Start --------------
+---------------------------------------------------------
+Please select,eMMC Partition Area.
+0:User Partition Area : 62160896 KBytes
+ eMMC Sector Cnt : H'0 - H'0768FFFF
+1:Boot Partition 1 : 32256 KBytes
+ eMMC Sector Cnt : H'0 - H'0000FBFF
+2:Boot Partition 2 : 32256 KBytes
+ eMMC Sector Cnt : H'0 - H'0000FBFF
+---------------------------------------------------------
+ Select area(0-2)>1                                       <<<< Enter "1" here
+-- Boot Partition 1 Program -----------------------------
+Please Input Start Address in sector :100                 <<<< Enter "100" here
+Please Input Program Start Address : 0                    <<<< Enter "0" here
+Work RAM(H'50000000-H'50FFFFFF) Clear....
+please send ! ('.' & CR stop load)
+```
+Send the data of “fip-`<board-name>`.srec” from terminal software after the message “please send !” is shown
+
+```text
 SAVE -FLASH.......
 EM_W Complete!
 ```
 
 Image writing has been completed.
+After writing two loader files normally, turn off the power of the board by changing the Switch
 
-#### 3.3.8. Erase the eMMC
-
-This command erases any partition of the eMMC.
-
-The following shows the procedure of this command.
-
-```text
->EM_E
-EM_E Start --------------
----------------------------------------------------------
-Please select,eMMC Partition Area.
- 0:User Partition Area   : 62160896 KBytes
-  eMMC Sector Cnt : H'0 - H'0768FFFF
- 1:Boot Partition 1      : 32256 KBytes
-  eMMC Sector Cnt : H'0 - H'0000FBFF
- 2:Boot Partition 2      : 32256 KBytes
-  eMMC Sector Cnt : H'0 - H'0000FBFF
----------------------------------------------------------
-  Select area(0-2)>0                                       <<<< Enter "0" here
--- User Partition Area Program --------------------------
-EM_E Complete!
-```
-
-Selected partition has been erased.
 
 #### 3.3.9. Change the SCIF baud rate setting
 
