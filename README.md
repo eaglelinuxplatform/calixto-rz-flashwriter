@@ -389,6 +389,12 @@ Selected partition has been erased.
 
 #### 3.3.7. Modify the EXT_CSD registers of eMMC command
 
+#### eMMC Boot Settings
+
+Please note that for eMMC booting, the following EXT_CSD registers need to be modified:
+ - EXT_CSD[**B1**] = **0x02**
+ - EXT_CSD[**B3**] = **0x08**
+
 This command modifies the contents of the EXT_CSD registers in the eMMC.
 
 The values must be entered as **hexadecimal**.
@@ -406,12 +412,6 @@ The values must be entered as **hexadecimal**.
  Please Input Value(H'00 - H'FF) :8
  EXT_CSD[B3] = 0x08
 ```
-
-#### eMMC Boot Settings
-
-Please note that for eMMC booting, the following EXT_CSD registers need to be modified:
- - EXT_CSD[**B1**] = **0x02**
- - EXT_CSD[**B3**] = **0x08**
 
 
 #### 3.3.8. Write to the S-record format images to the eMMC
