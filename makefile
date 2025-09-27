@@ -118,6 +118,39 @@ DDR_TYPE = DDR3L
 DDR_SIZE = 512MB_1PCS
 SWIZZLE  = T3BCUL
 DEVICE_TYPE = 1
+else ifeq ("$(BOARD)", "RZG2UL_TINY_SOM_512MB")
+#--------------------------------------
+# RZ/G2UL Tiny SOM 512 MB
+#--------------------------------------
+FILENAME_ADD = _RZG2UL_TINY_SOM
+DEVICE   = RZG2UL
+DDR_TYPE = DDR3L
+DDR_SIZE = 512MB_1PCS
+SWIZZLE  = T3BCUL
+DEVICE_TYPE = 2
+SCIF0_FUN6 = 1
+else ifeq ("$(BOARD)", "RZG2UL_TINY_SOM_256MB")
+#--------------------------------------
+# RZ/G2UL Tiny SOM 256 MB
+#--------------------------------------
+FILENAME_ADD = _RZG2UL_TINY_SOM
+DEVICE   = RZG2UL
+DDR_TYPE = DDR3L
+DDR_SIZE = 256MB_1PCS
+SWIZZLE  = T3BCUL
+DEVICE_TYPE = 2
+SCIF0_FUN6 = 1
+else ifeq ("$(BOARD)", "RZG2UL_TINY_SOM_1GB")
+#--------------------------------------
+# RZ/G2UL Tiny SOM 1 GB
+#--------------------------------------
+FILENAME_ADD = _RZG2UL_TINY_SOM
+DEVICE   = RZG2UL
+DDR_TYPE = DDR3L
+DDR_SIZE = 1GB
+SWIZZLE  = T3BCUL
+DEVICE_TYPE = 2
+SCIF0_FUN6 = 1
 else ifeq ("$(BOARD)", "RZG2UL_SMARC")
 #--------------------------------------
 # RZ/G2UL Smarc board
@@ -338,6 +371,9 @@ endif
 ifeq ("$(DDR_SIZE)", "512MB_1PCS")
 	CFLAGS += -DDDR_SIZE_512MB_1PCS=1
 endif
+ifeq ("$(DDR_SIZE)", "256MB_1PCS")
+	CFLAGS += -DDDR_SIZE_256MB_1PCS=1
+endif
 
 ifeq ("$(SWIZZLE)", "T1C")
 	CFLAGS += -DSWIZZLE_T1C=1
@@ -381,6 +417,10 @@ endif
 
 ifeq ("$(DEVICE_TYPE)", "2")
 	CFLAGS += -DDEVICE_TYPE=2
+endif
+
+ifeq ("$(SCIF0_FUN6)", "1")
+	CFLAGS += -DSCIF0_FUN6=1
 endif
 
 ifeq ("$(SERIAL_FLASH)", "ENABLE")

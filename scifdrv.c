@@ -111,6 +111,24 @@ void InitScif0PinFunction(void)
 	dataL |= 0x00000040U;				/* PFCWE = 1(Enable) */
 	*((volatile uint32_t*)PFC_PWPR) = dataL;
 
+#if SCIF0_FUN6 == 1
+
+        dataB = *((volatile uint8_t*)PFC_PMC1D);
+	dataB &= ~0x03U;
+	dataB |= 0x03U;					/* P38_0(TXD), P38_1(RXD) modfied by calixto for(G2UL) P13_0(TXD), P13_1(RXD) */
+	*((volatile uint8_t*)PFC_PMC1D) = dataB;
+//	dataB = *((volatile uint8_t*)PFC_PMC37);
+//	dataB &= ~0x07U;
+//	dataB |= 0x07U;					/* P39_0(SCK), P39_1(CTS), P39_2(RTS) */
+//	*((volatile uint8_t*)PFC_PMC37) = dataB;
+
+	dataL = *((volatile uint32_t*)PFC_PFC1D);
+	dataL &= ~0x00000077U;				/* P38_0(TXD), P38_1(RXD) */
+	dataL |= 0x00000011U;
+	*((volatile uint32_t*)PFC_PFC1D) = dataL;
+
+#else
+
 	dataB = *((volatile uint8_t*)PFC_PMC36);
 	dataB &= ~0x03U;
 	dataB |= 0x03U;					/* P38_0(TXD), P38_1(RXD) */
@@ -124,6 +142,8 @@ void InitScif0PinFunction(void)
 	dataL &= ~0x00000077U;				/* P38_0(TXD), P38_1(RXD) */
 	dataL |= 0x00000011U;
 	*((volatile uint32_t*)PFC_PFC36) = dataL;
+
+#endif
 
 //	dataL = *((volatile uint32_t*)PFC_PFC37);
 //	dataL &= ~0x00000777U;				/* P39_0(SCK), P39_1(CTS), P39_2(RTS) */

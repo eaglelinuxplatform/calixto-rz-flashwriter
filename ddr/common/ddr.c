@@ -45,7 +45,9 @@
 #if (DDR_SIZE_1GB == 1)
 #include "param_mc_C-010_D3-02-2.c"
 #elif (DDR_SIZE_512MB_1PCS == 1)
-#include "param_mc_C-011_D3-01-2.c"
+#include "param_mc_C-011_D3-09-5.c"
+#elif (DDR_SIZE_256MB_1PCS == 1)
+#include "param_mc_C-011_D3-02-3.c"
 #else
 #error "Unknown size."
 #endif
